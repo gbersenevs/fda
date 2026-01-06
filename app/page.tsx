@@ -1,4 +1,4 @@
-import { Check, Building2, Home as HomeIcon, Store, Phone, MapPin, Sparkles, Clock, Shield, Users, ArrowRight } from "lucide-react";
+import { Check, Building2, Home as HomeIcon, Store, Phone, MapPin, Sparkles, Clock, Shield, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import { Section, SectionHeader } from "@/components/section";
@@ -54,13 +54,13 @@ export default function HomePage() {
               )}
             </div>
             
-            {/* Right Visual - Simple Cleaning Image */}
+            {/* Right Visual - Skyscraper Image */}
             <div className="hidden lg:block relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                {/* Cleaning Image from Unsplash */}
+                {/* Skyscraper/Building Image */}
                 <img 
-                  src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=450&fit=crop&q=80"
-                  alt="Professional cleaning service"
+                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=450&fit=crop&q=80"
+                  alt="Modern office building"
                   className="w-full h-auto object-cover rounded-2xl"
                   width={600}
                   height={450}
@@ -78,19 +78,6 @@ export default function HomePage() {
                   <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-sm text-slate-700 px-3 py-2 rounded-lg text-sm font-medium shadow-lg notranslate">
                     {company.address.region}
                   </span>
-                </div>
-              </div>
-              
-              {/* Floating card */}
-              <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-xl p-4 border border-slate-100">
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center">
-                    <Users className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-text text-sm">Professional Team</div>
-                    <div className="text-xs text-text-muted">Trained & Equipped</div>
-                  </div>
                 </div>
               </div>
             </div>
