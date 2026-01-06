@@ -22,7 +22,7 @@ export const siteConfig = {
       full: "18. novembra iela 97A–20, Daugavpils, LV-5404, Latvia",
     },
     phone: "+371 26000000", // Update with actual phone
-    email: "info@fdaservice.lv", // Update with actual email
+    email: "info@fda.lv",
     positioning: "Professional building cleaning services in Latgale region",
     establishedYear: 2015,
     establishedDate: "9 December 2015",

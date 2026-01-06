@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Send, AlertCircle } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { Button } from "./button";
 import { cn } from "@/lib/utils";
@@ -22,14 +23,14 @@ type ContactFormData = z.infer<typeof contactSchema>;
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
+  const [submitStatus, setSubmitStatus] = useState<"error" | null>(null);
+  const router = useRouter();
 
   const { form: formConfig } = siteConfig.contact;
 
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -50,32 +51,14 @@ export function ContactForm() {
         throw new Error("Submission failed");
       }
 
-      setSubmitStatus("success");
-      reset();
+      // Redirect to thank you page
+      router.push("/thank-you");
     } catch (error) {
       setSubmitStatus("error");
       console.error("Form submission error:", error);
-    } finally {
       setIsSubmitting(false);
     }
   };
-
-  if (submitStatus === "success") {
-    return (
-      <div className="bg-green-50 border border-green-200 rounded-xl p-8 text-center">
-        <CheckCircle className="w-14 h-14 text-green-500 mx-auto mb-4" />
-        <p className="text-green-800 font-semibold text-lg mb-2">Message sent successfully!</p>
-        <p className="text-green-700">{formConfig.successMessage}</p>
-        <button
-          type="button"
-          onClick={() => setSubmitStatus(null)}
-          className="mt-6 text-green-600 hover:text-green-800 underline text-sm font-medium"
-        >
-          Send another message
-        </button>
-      </div>
-    );
-  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
