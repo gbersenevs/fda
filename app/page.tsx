@@ -1,4 +1,5 @@
-import { Check, Building2, Home as HomeIcon, Store, Phone, Mail, MapPin, Sparkles, Clock, Shield, Users, ArrowRight } from "lucide-react";
+import { Check, Building2, Home as HomeIcon, Store, Phone, Mail, MapPin, Sparkles, Clock, Shield, Users, ArrowRight, Droplets, Brush } from "lucide-react";
+import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import { Section, SectionHeader } from "@/components/section";
 import { Button } from "@/components/button";
@@ -15,31 +16,35 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-50 via-white to-primary-50 py-20 md:py-28 lg:py-36 overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-primary/30 rounded-full"></div>
-          <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-primary/20 rounded-full"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-2 h-2 bg-primary/30 rounded-full"></div>
+      <section className="relative bg-gradient-to-br from-white via-slate-50 to-primary-50/50 py-20 md:py-28 lg:py-32 overflow-hidden">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+              <pattern id="heroPattern" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle cx="10" cy="10" r="1" fill="#4B8BBE"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#heroPattern)" />
+          </svg>
         </div>
         
         <Container>
-          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left Content */}
             <div className="max-w-xl">
-              <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 mb-6 shadow-sm">
+              <div className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-2 mb-6">
                 <Clock className="w-4 h-4 text-primary" />
                 <span className="text-sm font-medium text-text-muted">{company.trustLine}</span>
               </div>
-              <h1 className="mb-6 text-text">
+              <h1 className="mb-6 text-text leading-tight">
                 {home.hero.headline}
               </h1>
               <p className="text-lg md:text-xl text-text-muted mb-8 leading-relaxed">
                 {home.hero.subheadline}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                <Button href={home.hero.primaryCta.href} size="lg" className="shadow-lg shadow-primary/20">
+              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                <Button href={home.hero.primaryCta.href} size="lg">
                   {home.hero.primaryCta.label}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -50,10 +55,10 @@ export default function HomePage() {
               
               {/* Stats */}
               {home.hero.stats && (
-                <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border/50">
+                <div className="flex flex-wrap gap-8 lg:gap-12">
                   {home.hero.stats.map((stat, index) => (
                     <div key={index}>
-                      <div className="text-2xl md:text-3xl font-bold text-primary">{stat.value}</div>
+                      <div className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>
                       <div className="text-sm text-text-muted">{stat.label}</div>
                     </div>
                   ))}
@@ -61,62 +66,76 @@ export default function HomePage() {
               )}
             </div>
             
-            {/* Hero Visual */}
+            {/* Right Visual - Cleaning Illustration */}
             <div className="hidden lg:block relative">
               <div className="relative">
-                {/* Main visual card */}
-                <div className="bg-white rounded-2xl shadow-soft p-8 border border-border/50">
-                  {/* Cleaning illustration */}
-                  <div className="aspect-[4/3] bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 opacity-30">
-                      <svg className="w-full h-full" viewBox="0 0 400 300">
-                        <defs>
-                          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#4B8BBE" strokeWidth="0.5" opacity="0.3"/>
-                          </pattern>
-                        </defs>
-                        <rect width="100%" height="100%" fill="url(#grid)" />
-                      </svg>
+                {/* Main illustration card */}
+                <div className="bg-white rounded-3xl shadow-xl p-6 border border-slate-100">
+                  {/* Cleaning scene illustration */}
+                  <div className="aspect-[4/3] bg-gradient-to-br from-primary-50 via-blue-50 to-slate-50 rounded-2xl relative overflow-hidden">
+                    {/* Floor/surface line */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-slate-100 to-transparent"></div>
+                    
+                    {/* Cleaning elements */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="relative">
+                        {/* Building icon */}
+                        <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
+                          <Building2 className="w-20 h-20 text-primary" strokeWidth={1.5} />
+                        </div>
+                        
+                        {/* Sparkle effects */}
+                        <div className="absolute -top-4 -right-4 text-primary">
+                          <Sparkles className="w-8 h-8" />
+                        </div>
+                        <div className="absolute -bottom-2 -left-4 text-primary/60">
+                          <Droplets className="w-6 h-6" />
+                        </div>
+                        <div className="absolute top-1/2 -right-8 text-primary/40">
+                          <Brush className="w-5 h-5" />
+                        </div>
+                      </div>
                     </div>
                     
-                    {/* Building icon representation */}
-                    <div className="relative z-10 flex flex-col items-center">
-                      <div className="bg-white rounded-xl p-6 shadow-lg mb-4">
-                        <Building2 className="w-16 h-16 text-primary" />
-                      </div>
-                      <div className="flex gap-2">
-                        <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-                        <div className="w-3 h-3 bg-primary/60 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                        <div className="w-3 h-3 bg-primary/30 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
-                      </div>
-                    </div>
+                    {/* Decorative circles */}
+                    <div className="absolute top-6 left-6 w-12 h-12 bg-primary/10 rounded-full"></div>
+                    <div className="absolute top-12 right-10 w-8 h-8 bg-primary/5 rounded-full"></div>
+                    <div className="absolute bottom-16 left-10 w-6 h-6 bg-primary/10 rounded-full"></div>
                   </div>
                   
-                  {/* Info badges */}
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    <span className="inline-flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1.5 rounded-full text-sm font-medium">
+                  {/* Service badges */}
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1.5 bg-green-50 text-green-700 px-3 py-1.5 rounded-full text-sm font-medium">
                       <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                       Available Now
                     </span>
-                    <span className="inline-flex items-center gap-2 bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm font-medium">
+                    <span className="inline-flex items-center gap-1.5 bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm font-medium">
                       Free Quote
                     </span>
-                    <span className="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-3 py-1.5 rounded-full text-sm font-medium">
+                    <span className="inline-flex items-center gap-1.5 bg-slate-100 text-slate-700 px-3 py-1.5 rounded-full text-sm font-medium notranslate">
                       {company.address.region}
                     </span>
                   </div>
                 </div>
                 
-                {/* Floating card */}
-                <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-4 border border-border/50">
+                {/* Floating info card */}
+                <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-4 border border-slate-100">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Sparkles className="w-5 h-5 text-primary" />
+                    <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center">
+                      <Users className="w-5 h-5 text-primary" />
                     </div>
                     <div>
                       <div className="font-semibold text-text text-sm">Professional Team</div>
                       <div className="text-xs text-text-muted">Trained & Equipped</div>
                     </div>
+                  </div>
+                </div>
+                
+                {/* Top floating badge */}
+                <div className="absolute -top-3 right-8 bg-white rounded-lg shadow-md px-3 py-2 border border-slate-100">
+                  <div className="flex items-center gap-2 text-sm">
+                    <Shield className="w-4 h-4 text-primary" />
+                    <span className="font-medium text-text">Fully Insured</span>
                   </div>
                 </div>
               </div>
@@ -272,7 +291,7 @@ export default function HomePage() {
                   </svg>
                 </div>
                 <div className="text-center relative z-10">
-                  <div className="text-4xl font-bold text-primary mb-2">FDA SERVICE</div>
+                  <div className="text-4xl font-bold text-primary mb-2 notranslate">FDA SERVICE</div>
                   <div className="text-text-muted">Your trusted cleaning partner</div>
                 </div>
               </div>
@@ -289,7 +308,7 @@ export default function HomePage() {
             <p className="text-text-muted mb-6 leading-relaxed">{home.compliance.content}</p>
           </div>
           <Card padding="lg" className="bg-slate-50 border-0">
-            <div className="space-y-4">
+            <div className="space-y-4 notranslate">
               <div className="flex items-start gap-3">
                 <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
                   <Building2 className="w-5 h-5 text-primary" />

@@ -39,14 +39,17 @@ export function ContactForm() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // TODO: Implement actual API submission
-    // For now, simulate a submission with a timeout
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      
-      // Log form data for development
-      console.log("Form submitted:", data);
-      
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Submission failed");
+      }
+
       setSubmitStatus("success");
       reset();
     } catch (error) {
@@ -59,14 +62,14 @@ export function ContactForm() {
 
   if (submitStatus === "success") {
     return (
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
-        <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-4" />
-        <p className="text-green-800 font-medium mb-2">Message sent successfully</p>
-        <p className="text-green-700 text-sm">{formConfig.successMessage}</p>
+      <div className="bg-green-50 border border-green-200 rounded-xl p-8 text-center">
+        <CheckCircle className="w-14 h-14 text-green-500 mx-auto mb-4" />
+        <p className="text-green-800 font-semibold text-lg mb-2">Message sent successfully!</p>
+        <p className="text-green-700">{formConfig.successMessage}</p>
         <button
           type="button"
           onClick={() => setSubmitStatus(null)}
-          className="mt-4 text-green-600 hover:text-green-800 underline text-sm"
+          className="mt-6 text-green-600 hover:text-green-800 underline text-sm font-medium"
         >
           Send another message
         </button>
@@ -77,12 +80,12 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
       {submitStatus === "error" && (
-        <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start gap-3">
+        <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-start gap-3">
           <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
           <div>
             <p className="text-red-800 font-medium">Submission failed</p>
             <p className="text-red-700 text-sm">
-              Please try again or contact us directly.
+              Please try again or contact us directly at {siteConfig.company.email}
             </p>
           </div>
         </div>
@@ -100,7 +103,7 @@ export function ContactForm() {
             {...register("name")}
             placeholder={formConfig.fields.name.placeholder}
             className={cn(
-              "w-full px-4 py-3 border rounded-md transition-colors",
+              "w-full px-4 py-3 border rounded-lg transition-colors",
               "focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent",
               errors.name ? "border-red-500" : "border-border"
             )}
@@ -120,7 +123,7 @@ export function ContactForm() {
             id="company"
             {...register("company")}
             placeholder={formConfig.fields.company.placeholder}
-            className="w-full px-4 py-3 border border-border rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            className="w-full px-4 py-3 border border-border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
         </div>
 
@@ -135,7 +138,7 @@ export function ContactForm() {
             {...register("email")}
             placeholder={formConfig.fields.email.placeholder}
             className={cn(
-              "w-full px-4 py-3 border rounded-md transition-colors",
+              "w-full px-4 py-3 border rounded-lg transition-colors",
               "focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent",
               errors.email ? "border-red-500" : "border-border"
             )}
@@ -155,7 +158,7 @@ export function ContactForm() {
             id="phone"
             {...register("phone")}
             placeholder={formConfig.fields.phone.placeholder}
-            className="w-full px-4 py-3 border border-border rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+            className="w-full px-4 py-3 border border-border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
         </div>
       </div>
@@ -169,7 +172,7 @@ export function ContactForm() {
           id="serviceType"
           {...register("serviceType")}
           className={cn(
-            "w-full px-4 py-3 border rounded-md transition-colors appearance-none bg-white",
+            "w-full px-4 py-3 border rounded-lg transition-colors appearance-none bg-white",
             "focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent",
             errors.serviceType ? "border-red-500" : "border-border"
           )}
@@ -197,7 +200,7 @@ export function ContactForm() {
           rows={5}
           placeholder={formConfig.fields.message.placeholder}
           className={cn(
-            "w-full px-4 py-3 border rounded-md transition-colors resize-y",
+            "w-full px-4 py-3 border rounded-lg transition-colors resize-y",
             "focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent",
             errors.message ? "border-red-500" : "border-border"
           )}
@@ -224,4 +227,3 @@ export function ContactForm() {
     </form>
   );
 }
-

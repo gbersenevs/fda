@@ -15,7 +15,7 @@ export function Footer() {
             {/* Company Info */}
             <div className="lg:col-span-1">
               {/* Text Logo */}
-              <Link href="/" className="inline-flex items-center gap-2 mb-4">
+              <Link href="/" className="inline-flex items-center gap-2 mb-4 notranslate">
                 <span className="text-2xl font-extrabold tracking-tight text-white">
                   FDA
                 </span>
@@ -26,7 +26,8 @@ export function Footer() {
               <p className="text-slate-400 text-sm mb-4">
                 {company.positioning}
               </p>
-              <div className="space-y-2 text-sm text-slate-400">
+              {/* Contact info - do not translate */}
+              <div className="space-y-2 text-sm text-slate-400 notranslate">
                 <div className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary-400" />
                   <span>{company.address.full}</span>
@@ -82,10 +83,10 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Legal Details */}
+            {/* Legal Details - do not translate */}
             <div>
               <h4 className="font-semibold mb-4 text-white">Company Details</h4>
-              <ul className="space-y-2 text-sm text-slate-400">
+              <ul className="space-y-2 text-sm text-slate-400 notranslate">
                 <li className="flex items-start gap-2">
                   <Building2 className="w-4 h-4 mt-0.5 flex-shrink-0 text-slate-500" />
                   <div>
@@ -118,7 +119,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="py-4 border-t border-slate-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-            <p>
+            <p className="notranslate">
               © {currentYear} {company.legalName}. All rights reserved.
             </p>
             <p className="text-xs text-center md:text-right max-w-md">

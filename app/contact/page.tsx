@@ -43,11 +43,11 @@ export default function ContactPage() {
       {/* Contact Details & Form */}
       <Section>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Company Details */}
+          {/* Company Details - with notranslate to prevent Google Translate */}
           <div className="lg:col-span-1">
             <h2 className="text-xl font-semibold mb-6">Company Details</h2>
             <Card padding="lg" className="bg-slate-50 border-0 mb-6">
-              <div className="space-y-5">
+              <div className="space-y-5 notranslate">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm flex-shrink-0">
                     <Building2 className="w-5 h-5 text-primary" />
@@ -163,7 +163,7 @@ export default function ContactPage() {
             className="absolute inset-0"
           ></iframe>
         </div>
-        <div className="mt-6 flex flex-wrap items-center gap-4 text-text-muted">
+        <div className="mt-6 flex flex-wrap items-center gap-4 text-text-muted notranslate">
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4 text-primary" />
             <span>{company.address.full}</span>

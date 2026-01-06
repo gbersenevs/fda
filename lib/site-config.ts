@@ -79,9 +79,9 @@ export const siteConfig = {
   // Home Page Content
   home: {
     hero: {
-      headline: "Clean spaces, clear minds",
+      headline: "Your partner for all things cleaning",
       subheadline:
-        "Professional building cleaning services in Daugavpils and the Latgale region. We handle the cleaning so you can focus on what matters most.",
+        "We assist businesses and buildings in Daugavpils and the Latgale region with professional cleaning services. Leave the cleaning to us.",
       primaryCta: { label: "Get a free quote", href: "/contact" },
       secondaryCta: { label: "Our services", href: "/services" },
       stats: [
