@@ -11,7 +11,7 @@ import { Container } from "@/components/container";
 export default function HomePage() {
   const { home, company } = siteConfig;
 
-  const valueIcons = [Shield, Sparkles, Users, MapPin];
+  const valueIcons = [Shield, Sparkles, Building2, MapPin];
 
   return (
     <>
