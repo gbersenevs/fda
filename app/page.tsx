@@ -46,7 +46,7 @@ export default function HomePage() {
                 <div className="flex flex-wrap gap-8 lg:gap-10">
                   {home.hero.stats.map((stat, index) => (
                     <div key={index}>
-                      <div className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>
+                      <div className="text-3xl md:text-4xl font-bold text-primary notranslate">{stat.value}</div>
                       <div className="text-sm text-text-muted">{stat.label}</div>
                     </div>
                   ))}
