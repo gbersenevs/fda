@@ -47,7 +47,10 @@ export function SectionHeader({
     <div className={cn(centered && "text-center", "mb-12", className)}>
       <h2 className="text-text mb-4">{title}</h2>
       {subtitle && (
-        <p className="text-text-muted text-lg max-w-3xl">{subtitle}</p>
+        <p className={cn(
+          "text-text-muted text-lg max-w-3xl",
+          centered && "mx-auto"
+        )}>{subtitle}</p>
       )}
     </div>
   );
