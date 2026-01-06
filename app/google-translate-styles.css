@@ -1,0 +1,69 @@
+/* Google Translate Widget Styling - Hide Everything */
+
+/* Completely hide the Google Translate banner frame */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+/* Remove top spacing that Google Translate adds */
+body {
+  top: 0 !important;
+  position: static !important;
+}
+
+/* Hide the Google Translate widget itself */
+#google_translate_element {
+  display: none !important;
+}
+
+/* Hide all Google Translate UI elements */
+.goog-te-gadget,
+.goog-te-combo,
+.skiptranslate,
+.goog-te-banner-frame {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Hide iframes */
+.skiptranslate iframe,
+iframe.skiptranslate,
+iframe.goog-te-menu-frame {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+
+/* Ensure no spacing issues */
+body.translated-ltr,
+body.translated-rtl {
+  top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Hide the Google Translate toolbar */
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+/* Remove any Google Translate spacing */
+#goog-gt-tt,
+.goog-gt-tt {
+  display: none !important;
+}
+
+/* Ensure language buttons are never translated */
+.notranslate {
+  translate: no !important;
+}
+
+button.notranslate,
+.notranslate button {
+  font-family: system-ui, -apple-system, sans-serif !important;
+}
+
