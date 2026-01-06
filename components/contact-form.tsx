@@ -77,8 +77,8 @@ export function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Full Name */}
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-text mb-2">
-            {formConfig.fields.name.label} <span className="text-red-500">*</span>
+          <label htmlFor="name" className="block text-sm font-medium text-text mb-2 notranslate">
+            Full name <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -98,8 +98,8 @@ export function ContactForm() {
 
         {/* Company Name */}
         <div>
-          <label htmlFor="company" className="block text-sm font-medium text-text mb-2">
-            {formConfig.fields.company.label}
+          <label htmlFor="company" className="block text-sm font-medium text-text mb-2 notranslate">
+            Company name (optional)
           </label>
           <input
             type="text"
@@ -112,8 +112,8 @@ export function ContactForm() {
 
         {/* Email */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-text mb-2">
-            {formConfig.fields.email.label} <span className="text-red-500">*</span>
+          <label htmlFor="email" className="block text-sm font-medium text-text mb-2 notranslate">
+            Email <span className="text-red-500">*</span>
           </label>
           <input
             type="email"
@@ -133,8 +133,8 @@ export function ContactForm() {
 
         {/* Phone */}
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-text mb-2">
-            {formConfig.fields.phone.label}
+          <label htmlFor="phone" className="block text-sm font-medium text-text mb-2 notranslate">
+            Phone (optional)
           </label>
           <input
             type="tel"
@@ -148,8 +148,8 @@ export function ContactForm() {
 
       {/* Service Type */}
       <div>
-        <label htmlFor="serviceType" className="block text-sm font-medium text-text mb-2">
-          {formConfig.fields.serviceType.label} <span className="text-red-500">*</span>
+        <label htmlFor="serviceType" className="block text-sm font-medium text-text mb-2 notranslate">
+          Service type <span className="text-red-500">*</span>
         </label>
         <select
           id="serviceType"
@@ -174,8 +174,8 @@ export function ContactForm() {
 
       {/* Message */}
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-text mb-2">
-          {formConfig.fields.message.label} <span className="text-red-500">*</span>
+        <label htmlFor="message" className="block text-sm font-medium text-text mb-2 notranslate">
+          Message <span className="text-red-500">*</span>
         </label>
         <textarea
           id="message"
@@ -194,7 +194,7 @@ export function ContactForm() {
       </div>
 
       {/* Submit Button */}
-      <Button type="submit" disabled={isSubmitting} className="w-full md:w-auto">
+      <Button type="submit" disabled={isSubmitting} className="w-full md:w-auto notranslate">
         {isSubmitting ? (
           <>
             <span className="animate-spin mr-2">⏳</span>
@@ -203,7 +203,7 @@ export function ContactForm() {
         ) : (
           <>
             <Send className="w-4 h-4 mr-2" />
-            {formConfig.submitLabel}
+            Send message
           </>
         )}
       </Button>

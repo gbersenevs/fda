@@ -25,12 +25,14 @@ export async function POST(request: NextRequest) {
     const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
     
     if (!accessKey) {
-      console.error("WEB3FORMS_ACCESS_KEY not configured");
-      // Still return success for development
-      console.log("📧 Form submission (no Web3Forms key):", data);
+      console.error("WEB3FORMS_ACCESS_KEY not configured in environment variables");
+      console.log("📧 Form data received:", { name: data.name, email: data.email });
+      // Return success anyway so form works in development
       return NextResponse.json({ success: true });
     }
 
+    console.log("Sending to Web3Forms...");
+    
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: { 
@@ -49,6 +51,15 @@ export async function POST(request: NextRequest) {
         message: data.message,
       }),
     });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Web3Forms HTTP error:", response.status, errorText);
+      return NextResponse.json(
+        { error: "Failed to send message" },
+        { status: 500 }
+      );
+    }
 
     const result = await response.json();
 
@@ -70,7 +81,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Contact form error:", error);
     return NextResponse.json(
-      { error: "Failed to process submission" },
+      { error: "Failed to process submission", details: error instanceof Error ? error.message : "Unknown error" },
       { status: 500 }
     );
   }
