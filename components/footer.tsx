@@ -15,12 +15,9 @@ export function Footer() {
             {/* Company Info */}
             <div className="lg:col-span-1">
               {/* Text Logo */}
-              <Link href="/" className="inline-flex items-center gap-2 mb-4 notranslate">
-                <span className="text-2xl font-extrabold tracking-tight text-white">
-                  FDA
-                </span>
-                <span className="text-2xl font-normal tracking-wide text-primary-300">
-                  SERVICE
+              <Link href="/" className="inline-block mb-4 notranslate">
+                <span className="text-xl font-bold tracking-tight text-white">
+                  FDA SERVICE
                 </span>
               </Link>
               <p className="text-slate-400 text-sm mb-4">

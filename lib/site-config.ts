@@ -87,7 +87,7 @@ export const siteConfig = {
       stats: [
         { value: "9+", label: "Years experience" },
         { value: "100%", label: "Latvian company" },
-        { value: "24/7", label: "Support available" },
+        { value: "24/7", label: "Available support" },
       ],
     },
     mission: {

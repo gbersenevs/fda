@@ -18,12 +18,9 @@ export function Header() {
       <Container>
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 notranslate" aria-label={`${company.name} Home`}>
-            <span className="text-2xl md:text-3xl font-extrabold tracking-tight text-text">
-              FDA
-            </span>
-            <span className="text-2xl md:text-3xl font-normal tracking-wide text-primary">
-              SERVICE
+          <Link href="/" className="notranslate" aria-label={`${company.name} Home`}>
+            <span className="text-xl md:text-2xl font-bold tracking-tight text-text">
+              FDA SERVICE
             </span>
           </Link>
 
