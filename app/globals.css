@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,15 +7,22 @@
 @import './google-translate-styles.css';
 
 :root {
-  --color-primary: #2A7AC1;
-  --color-primary-600: #1F66A6;
-  --color-secondary: #559DD1;
-  --color-tertiary: #93BFE1;
-  --color-surface: #ECF1F4;
+  /* FDA SERVICE Brand Colors - Light theme with grey and blue accents */
+  --color-primary: #4B8BBE;
+  --color-primary-50: #EFF6FB;
+  --color-primary-100: #D9EAF5;
+  --color-primary-200: #B3D5EB;
+  --color-primary-600: #3A6F98;
+  --color-primary-700: #2A5372;
+  --color-secondary: #6B7B8A;
+  --color-tertiary: #94A3B8;
+  --color-surface: #F8FAFC;
   --color-background: #FFFFFF;
-  --color-text: #0B1B2A;
-  --color-text-muted: #4B5B6B;
-  --color-border: #D9E2EA;
+  --color-text: #1E293B;
+  --color-text-muted: #64748B;
+  --color-text-light: #94A3B8;
+  --color-border: #E2E8F0;
+  --color-accent-light: #F1F5F9;
 }
 
 @layer base {
@@ -23,14 +32,15 @@
   
   body {
     @apply bg-background text-text antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold text-text;
+    @apply font-semibold text-text tracking-tight;
   }
   
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl leading-tight;
+    @apply text-4xl md:text-5xl lg:text-6xl leading-tight font-bold;
   }
   
   h2 {
@@ -79,5 +89,44 @@
   .prose li {
     @apply text-text-muted;
   }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-soft hover:-translate-y-1;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-primary bg-clip-text text-transparent;
+  }
+
+  /* Section pattern background */
+  .pattern-dots {
+    background-image: radial-gradient(circle, #E2E8F0 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Clean button styles */
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-medium 
+           hover:bg-primary-600 transition-all duration-200 
+           shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-text border border-border px-6 py-3 rounded-lg font-medium 
+           hover:bg-surface hover:border-primary/30 transition-all duration-200;
+  }
 }
 
+@layer utilities {
+  /* Smooth shadow for cards */
+  .shadow-soft {
+    box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Subtle text shadow for hero text */
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}

@@ -22,9 +22,9 @@ export function Card({
   return (
     <div
       className={cn(
-        "bg-white rounded-lg border border-border shadow-sm",
+        "bg-white rounded-xl border border-border/50 shadow-card",
         paddings[padding],
-        hover && "transition-shadow duration-200 hover:shadow-md",
+        hover && "transition-all duration-300 hover:shadow-soft hover:-translate-y-1",
         className
       )}
     >
@@ -71,6 +71,5 @@ interface CardFooterProps {
 }
 
 export function CardFooter({ children, className }: CardFooterProps) {
-  return <div className={cn("mt-4 pt-4 border-t border-border", className)}>{children}</div>;
+  return <div className={cn("mt-4 pt-4 border-t border-border/50", className)}>{children}</div>;
 }
-

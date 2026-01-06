@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: serviceData.title,
   description: serviceData.description,
   openGraph: {
-    title: `${serviceData.title} | KUBER Ltd`,
+    title: `${serviceData.title} | FDA SERVICE`,
     description: serviceData.description,
   },
 };
@@ -26,4 +26,3 @@ export default function FacilitySupportPage() {
     />
   );
 }
-

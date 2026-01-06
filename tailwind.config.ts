@@ -9,23 +9,39 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // KUBER Brand Colors
+        // FDA SERVICE Brand Colors - Light theme with grey and blue accents
         primary: {
-          DEFAULT: "#2A7AC1",
-          600: "#1F66A6",
+          DEFAULT: "#4B8BBE", // Professional blue
+          50: "#EFF6FB",
+          100: "#D9EAF5",
+          200: "#B3D5EB",
+          300: "#8DC0E1",
+          400: "#67ABD7",
+          500: "#4B8BBE",
+          600: "#3A6F98",
+          700: "#2A5372",
+          800: "#1A374C",
+          900: "#0A1B26",
         },
-        secondary: "#559DD1",
-        tertiary: "#93BFE1",
-        surface: "#ECF1F4",
+        secondary: "#6B7B8A", // Grey-blue
+        tertiary: "#94A3B8", // Lighter grey
+        surface: "#F8FAFC", // Very light grey
         background: "#FFFFFF",
         text: {
-          DEFAULT: "#0B1B2A",
-          muted: "#4B5B6B",
+          DEFAULT: "#1E293B", // Dark slate
+          muted: "#64748B", // Medium grey
+          light: "#94A3B8", // Light grey
         },
-        border: "#D9E2EA",
+        border: "#E2E8F0", // Light border
+        accent: {
+          blue: "#4B8BBE",
+          grey: "#64748B",
+          light: "#F1F5F9",
+        },
       },
       fontFamily: {
         sans: [
+          "Inter",
           "system-ui",
           "-apple-system",
           "BlinkMacSystemFont",
@@ -36,10 +52,18 @@ const config: Config = {
           "sans-serif",
         ],
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'hero-pattern': 'linear-gradient(135deg, #F8FAFC 0%, #EFF6FB 50%, #F1F5F9 100%)',
+        'section-gradient': 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
+      },
+      boxShadow: {
+        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
+        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05)',
+      },
     },
   },
   plugins: [],
 };
 
 export default config;
-

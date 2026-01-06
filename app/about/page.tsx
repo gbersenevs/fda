@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Check, Users, ClipboardCheck, MessageSquare, Shield } from "lucide-react";
+import { Check, Users, ClipboardCheck, MessageSquare, Shield, MapPin, Calendar, Building2, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { Section, SectionHeader } from "@/components/section";
 import { Button } from "@/components/button";
@@ -10,25 +10,33 @@ import { Container } from "@/components/container";
 export const metadata: Metadata = {
   title: "About us",
   description:
-    "Learn about KUBER Ltd, a professional facility services company in Riga providing cleaning and facility support since 2013.",
+    "Learn about FDA SERVICE, a professional building cleaning company in Daugavpils providing cleaning services since 2015.",
   openGraph: {
-    title: "About KUBER Ltd",
+    title: "About FDA SERVICE",
     description:
-      "Learn about KUBER Ltd, a professional facility services company in Riga providing cleaning and facility support since 2013.",
+      "Learn about FDA SERVICE, a professional building cleaning company in Daugavpils providing cleaning services since 2015.",
   },
 };
 
 export default function AboutPage() {
   const { about, home, company } = siteConfig;
 
-  const highlightIcons = [Users, ClipboardCheck, Shield, MessageSquare];
+  const highlightIcons = [Building2, MapPin, Shield, Users];
 
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-surface py-16 md:py-24">
+      <section className="relative bg-gradient-to-br from-slate-50 via-white to-primary-50 py-20 md:py-28 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
+        </div>
         <Container>
-          <div className="max-w-3xl">
+          <div className="relative max-w-3xl">
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 mb-6 shadow-sm">
+              <Calendar className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-text-muted">Since {company.establishedYear}</span>
+            </div>
             <h1 className="mb-4">{about.hero.title}</h1>
             <p className="text-xl text-text-muted">{about.hero.subtitle}</p>
           </div>
@@ -41,9 +49,9 @@ export default function AboutPage() {
           {about.highlights.map((highlight, index) => {
             const Icon = highlightIcons[index] || Check;
             return (
-              <div key={index} className="flex items-start gap-4">
-                <div className="p-3 bg-primary/10 rounded-lg">
-                  <Icon className="w-6 h-6 text-primary" />
+              <div key={index} className="flex items-start gap-4 p-4 bg-slate-50 rounded-xl">
+                <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0">
+                  <Icon className="w-5 h-5 text-primary" />
                 </div>
                 <p className="text-text-muted text-sm leading-relaxed">
                   {highlight}
@@ -56,13 +64,41 @@ export default function AboutPage() {
 
       {/* Company Overview */}
       <Section background="surface">
-        <SectionHeader title={about.overview.title} />
-        <div className="max-w-3xl space-y-4">
-          {about.overview.paragraphs.map((paragraph, index) => (
-            <p key={index} className="text-text-muted">
-              {paragraph}
-            </p>
-          ))}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <SectionHeader title={about.overview.title} />
+            <div className="space-y-4">
+              {about.overview.paragraphs.map((paragraph, index) => (
+                <p key={index} className="text-text-muted leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </div>
+          <div className="hidden lg:block">
+            <div className="bg-white rounded-2xl p-8 shadow-soft border border-border/50">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center p-4 bg-slate-50 rounded-xl">
+                  <div className="text-3xl font-bold text-primary mb-1">
+                    {new Date().getFullYear() - company.establishedYear}+
+                  </div>
+                  <div className="text-sm text-text-muted">Years Active</div>
+                </div>
+                <div className="text-center p-4 bg-slate-50 rounded-xl">
+                  <div className="text-3xl font-bold text-primary mb-1">100%</div>
+                  <div className="text-sm text-text-muted">Latvian Company</div>
+                </div>
+                <div className="text-center p-4 bg-slate-50 rounded-xl">
+                  <div className="text-3xl font-bold text-primary mb-1">81.21</div>
+                  <div className="text-sm text-text-muted">NACE Code</div>
+                </div>
+                <div className="text-center p-4 bg-slate-50 rounded-xl">
+                  <div className="text-3xl font-bold text-primary mb-1">VAT</div>
+                  <div className="text-sm text-text-muted">Registered</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
 
@@ -70,7 +106,7 @@ export default function AboutPage() {
       <Section>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Mission */}
-          <Card padding="lg">
+          <Card padding="lg" className="border-t-4 border-t-primary">
             <CardHeader>
               <CardTitle as="h3">{home.mission.title}</CardTitle>
             </CardHeader>
@@ -80,7 +116,7 @@ export default function AboutPage() {
           </Card>
 
           {/* Vision */}
-          <Card padding="lg">
+          <Card padding="lg" className="border-t-4 border-t-primary">
             <CardHeader>
               <CardTitle as="h3">{home.vision.title}</CardTitle>
             </CardHeader>
@@ -100,7 +136,7 @@ export default function AboutPage() {
           </Card>
 
           {/* Values */}
-          <Card padding="lg">
+          <Card padding="lg" className="border-t-4 border-t-primary">
             <CardHeader>
               <CardTitle as="h3">{home.values.title}</CardTitle>
             </CardHeader>
@@ -126,17 +162,17 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-border hidden md:block"></div>
+            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-primary/20 hidden md:block"></div>
             
             <div className="space-y-8">
-              {about.howWeWork.steps.map((step, index) => (
+              {about.howWeWork.steps.map((step) => (
                 <div key={step.number} className="relative flex gap-6">
                   {/* Step number */}
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg z-10">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center font-bold text-lg z-10 shadow-lg shadow-primary/20">
                     {step.number}
                   </div>
                   {/* Content */}
-                  <div className="flex-1 pb-8">
+                  <div className="flex-1 pb-8 bg-white rounded-xl p-6 shadow-card border border-border/50">
                     <h4 className="text-lg font-semibold text-text mb-2">
                       {step.title}
                     </h4>
@@ -154,35 +190,48 @@ export default function AboutPage() {
         <SectionHeader title={about.experience.title} />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div>
-            <p className="text-text-muted mb-6">{about.experience.content}</p>
-            <p className="text-sm text-text-muted italic">
+            <p className="text-text-muted mb-6 leading-relaxed">{about.experience.content}</p>
+            <p className="text-sm text-text-muted italic bg-slate-50 p-4 rounded-lg border-l-4 border-primary/30">
               {about.experience.clientLogosPlaceholder}
             </p>
           </div>
-          <div className="bg-surface rounded-lg p-8 flex items-center justify-center">
+          <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8 flex items-center justify-center">
             <div className="text-center">
-              <p className="text-6xl font-bold text-primary mb-2">
+              <p className="text-7xl font-bold text-primary mb-2">
                 {new Date().getFullYear() - company.establishedYear}+
               </p>
-              <p className="text-text-muted">Years of experience</p>
+              <p className="text-primary-700 font-medium">Years of Experience</p>
+              <p className="text-sm text-primary-600 mt-2">Serving {company.address.region}</p>
             </div>
           </div>
         </div>
       </Section>
 
       {/* CTA Section */}
-      <Section background="surface">
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="mb-4">Ready to work with us?</h2>
-          <p className="text-text-muted text-lg mb-8">
-            Contact us to discuss how KUBER can support your facility needs.
-          </p>
-          <Button href="/contact" size="lg">
-            Get in touch
-          </Button>
+      <section className="relative bg-gradient-to-br from-primary-600 via-primary to-primary-500 py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <svg className="w-full h-full" viewBox="0 0 400 200">
+            <defs>
+              <pattern id="aboutCtaGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#aboutCtaGrid)" />
+          </svg>
         </div>
-      </Section>
+        <Container>
+          <div className="relative text-center max-w-2xl mx-auto">
+            <h2 className="text-white mb-4">Ready to work with us?</h2>
+            <p className="text-primary-100 text-lg mb-8">
+              Contact us to discuss how FDA SERVICE can support your building cleaning needs in {company.address.region}.
+            </p>
+            <Button href="/contact" size="lg" variant="outline" className="bg-white text-primary border-white hover:bg-primary-50">
+              Get in touch
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+        </Container>
+      </section>
     </>
   );
 }
-
