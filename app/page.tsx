@@ -1,4 +1,4 @@
-import { Check, Building2, Home as HomeIcon, Store, Phone, Mail, MapPin, Sparkles, Clock, Shield, Users, ArrowRight, Droplets, Brush } from "lucide-react";
+import { Check, Building2, Home as HomeIcon, Store, Phone, MapPin, Sparkles, Clock, Shield, Users, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import { Section, SectionHeader } from "@/components/section";
@@ -16,21 +16,9 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-white via-slate-50 to-primary-50/50 py-20 md:py-28 lg:py-32 overflow-hidden">
-        {/* Subtle background pattern */}
-        <div className="absolute inset-0 opacity-[0.03]">
-          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <defs>
-              <pattern id="heroPattern" width="20" height="20" patternUnits="userSpaceOnUse">
-                <circle cx="10" cy="10" r="1" fill="#4B8BBE"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#heroPattern)" />
-          </svg>
-        </div>
-        
+      <section className="relative bg-gradient-to-br from-white via-slate-50 to-primary-50/30 py-16 md:py-24 lg:py-28 overflow-hidden">
         <Container>
-          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Left Content */}
             <div className="max-w-xl">
               <div className="inline-flex items-center gap-2 bg-primary/5 border border-primary/10 rounded-full px-4 py-2 mb-6">
@@ -43,7 +31,7 @@ export default function HomePage() {
               <p className="text-lg md:text-xl text-text-muted mb-8 leading-relaxed">
                 {home.hero.subheadline}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <div className="flex flex-col sm:flex-row gap-4 mb-10">
                 <Button href={home.hero.primaryCta.href} size="lg">
                   {home.hero.primaryCta.label}
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -55,7 +43,7 @@ export default function HomePage() {
               
               {/* Stats */}
               {home.hero.stats && (
-                <div className="flex flex-wrap gap-8 lg:gap-12">
+                <div className="flex flex-wrap gap-8 lg:gap-10">
                   {home.hero.stats.map((stat, index) => (
                     <div key={index}>
                       <div className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>
@@ -66,76 +54,42 @@ export default function HomePage() {
               )}
             </div>
             
-            {/* Right Visual - Cleaning Illustration */}
+            {/* Right Visual - Simple Cleaning Image */}
             <div className="hidden lg:block relative">
-              <div className="relative">
-                {/* Main illustration card */}
-                <div className="bg-white rounded-3xl shadow-xl p-6 border border-slate-100">
-                  {/* Cleaning scene illustration */}
-                  <div className="aspect-[4/3] bg-gradient-to-br from-primary-50 via-blue-50 to-slate-50 rounded-2xl relative overflow-hidden">
-                    {/* Floor/surface line */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-slate-100 to-transparent"></div>
-                    
-                    {/* Cleaning elements */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="relative">
-                        {/* Building icon */}
-                        <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
-                          <Building2 className="w-20 h-20 text-primary" strokeWidth={1.5} />
-                        </div>
-                        
-                        {/* Sparkle effects */}
-                        <div className="absolute -top-4 -right-4 text-primary">
-                          <Sparkles className="w-8 h-8" />
-                        </div>
-                        <div className="absolute -bottom-2 -left-4 text-primary/60">
-                          <Droplets className="w-6 h-6" />
-                        </div>
-                        <div className="absolute top-1/2 -right-8 text-primary/40">
-                          <Brush className="w-5 h-5" />
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Decorative circles */}
-                    <div className="absolute top-6 left-6 w-12 h-12 bg-primary/10 rounded-full"></div>
-                    <div className="absolute top-12 right-10 w-8 h-8 bg-primary/5 rounded-full"></div>
-                    <div className="absolute bottom-16 left-10 w-6 h-6 bg-primary/10 rounded-full"></div>
-                  </div>
-                  
-                  {/* Service badges */}
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    <span className="inline-flex items-center gap-1.5 bg-green-50 text-green-700 px-3 py-1.5 rounded-full text-sm font-medium">
-                      <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                      Available Now
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm font-medium">
-                      Free Quote
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 bg-slate-100 text-slate-700 px-3 py-1.5 rounded-full text-sm font-medium notranslate">
-                      {company.address.region}
-                    </span>
-                  </div>
-                </div>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                {/* Cleaning Image from Unsplash */}
+                <img 
+                  src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=450&fit=crop&q=80"
+                  alt="Professional cleaning service"
+                  className="w-full h-auto object-cover rounded-2xl"
+                  width={600}
+                  height={450}
+                />
                 
-                {/* Floating info card */}
-                <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-4 border border-slate-100">
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center">
-                      <Users className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-text text-sm">Professional Team</div>
-                      <div className="text-xs text-text-muted">Trained & Equipped</div>
-                    </div>
-                  </div>
-                </div>
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
                 
-                {/* Top floating badge */}
-                <div className="absolute -top-3 right-8 bg-white rounded-lg shadow-md px-3 py-2 border border-slate-100">
-                  <div className="flex items-center gap-2 text-sm">
-                    <Shield className="w-4 h-4 text-primary" />
-                    <span className="font-medium text-text">Fully Insured</span>
+                {/* Badge overlay */}
+                <div className="absolute bottom-4 left-4 right-4 flex gap-2">
+                  <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-sm text-slate-700 px-3 py-2 rounded-lg text-sm font-medium shadow-lg">
+                    <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                    Available Now
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-sm text-slate-700 px-3 py-2 rounded-lg text-sm font-medium shadow-lg notranslate">
+                    {company.address.region}
+                  </span>
+                </div>
+              </div>
+              
+              {/* Floating card */}
+              <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-xl p-4 border border-slate-100">
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 bg-primary/10 rounded-xl flex items-center justify-center">
+                    <Users className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-text text-sm">Professional Team</div>
+                    <div className="text-xs text-text-muted">Trained & Equipped</div>
                   </div>
                 </div>
               </div>
@@ -175,13 +129,14 @@ export default function HomePage() {
             </Collapsible>
           </div>
           <div className="hidden lg:block">
-            <div className="bg-white rounded-2xl p-8 shadow-soft border border-border/50">
-              <div className="aspect-square bg-gradient-to-br from-slate-50 to-primary-50 rounded-xl flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl font-bold text-primary mb-2">9+</div>
-                  <div className="text-text-muted">Years of Excellence</div>
-                </div>
-              </div>
+            <div className="rounded-2xl overflow-hidden shadow-lg">
+              <img 
+                src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=500&h=500&fit=crop&q=80"
+                alt="Clean office building"
+                className="w-full h-auto object-cover"
+                width={500}
+                height={500}
+              />
             </div>
           </div>
         </div>
@@ -281,20 +236,14 @@ export default function HomePage() {
             </ul>
           </div>
           <div className="hidden lg:block">
-            <div className="bg-white rounded-2xl overflow-hidden shadow-soft border border-border/50">
-              <div className="aspect-video bg-gradient-to-br from-primary-100 via-primary-50 to-white flex items-center justify-center relative">
-                <div className="absolute inset-0 opacity-10">
-                  <svg className="w-full h-full" viewBox="0 0 400 225">
-                    <circle cx="100" cy="100" r="60" fill="#4B8BBE" opacity="0.3"/>
-                    <circle cx="300" cy="150" r="40" fill="#4B8BBE" opacity="0.2"/>
-                    <circle cx="200" cy="50" r="30" fill="#4B8BBE" opacity="0.15"/>
-                  </svg>
-                </div>
-                <div className="text-center relative z-10">
-                  <div className="text-4xl font-bold text-primary mb-2 notranslate">FDA SERVICE</div>
-                  <div className="text-text-muted">Your trusted cleaning partner</div>
-                </div>
-              </div>
+            <div className="rounded-2xl overflow-hidden shadow-lg">
+              <img 
+                src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600&h=400&fit=crop&q=80"
+                alt="Professional cleaning equipment"
+                className="w-full h-auto object-cover"
+                width={600}
+                height={400}
+              />
             </div>
           </div>
         </div>
