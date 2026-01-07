@@ -23,8 +23,8 @@ declare global {
 }
 
 const languages = [
-  { code: "en", label: "EN", name: "English" },
   { code: "lv", label: "LV", name: "Latvian" },
+  { code: "en", label: "EN", name: "English" },
   { code: "ru", label: "RU", name: "Russian" },
 ];
 

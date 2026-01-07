@@ -21,8 +21,8 @@ export function Footer() {
                   src="/brand/fda-logo.svg" 
                   alt="FDA SERVICE"
                   width={180}
-                  height={48}
-                  className="h-12 w-auto brightness-0 invert"
+                  height={130}
+                  className="h-12 w-auto"
                 />
               </Link>
               <p className="text-slate-400 text-sm mb-4">
@@ -34,13 +34,6 @@ export function Footer() {
                   <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary-400" />
                   <span>{company.address.full}</span>
                 </div>
-                <a
-                  href={`tel:${company.phone.replace(/\s/g, "")}`}
-                  className="flex items-center gap-2 hover:text-white transition-colors"
-                >
-                  <Phone className="w-4 h-4 flex-shrink-0 text-primary-400" />
-                  <span>{company.phone}</span>
-                </a>
                 <a
                   href={`mailto:${company.email}`}
                   className="flex items-center gap-2 hover:text-white transition-colors"

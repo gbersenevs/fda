@@ -51,13 +51,7 @@ export default function ThankYouPage() {
             
             <div className="pt-4 border-t border-border">
               <p className="text-sm text-text-muted">
-                If you need immediate assistance, please call us at{" "}
-                <a 
-                  href="tel:+37126000000" 
-                  className="text-primary hover:text-primary-600 font-medium notranslate"
-                >
-                  +371 26000000
-                </a>
+                We appreciate your patience and look forward to serving you.
               </p>
             </div>
           </div>

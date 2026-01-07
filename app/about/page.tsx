@@ -38,8 +38,7 @@ export default function AboutPage() {
               <span className="text-sm font-medium text-text-muted">Since {company.establishedYear}</span>
             </div>
             <h1 className="mb-4">
-              {about.hero.title.replace('FDA SERVICE', '')}
-              <span className="notranslate">FDA SERVICE</span>
+              {about.hero.title}<span className="notranslate">FDA SERVICE</span>
             </h1>
             <p className="text-xl text-text-muted">{about.hero.subtitle}</p>
           </div>
@@ -82,8 +81,8 @@ export default function AboutPage() {
             <div className="bg-white rounded-2xl p-8 shadow-soft border border-border/50">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center p-4 bg-slate-50 rounded-xl">
-                  <div className="text-3xl font-bold text-primary mb-1">
-                    {new Date().getFullYear() - company.establishedYear}+
+                  <div className="text-3xl font-bold text-primary mb-1 notranslate">
+                    10+
                   </div>
                   <div className="text-sm text-text-muted">Years Active</div>
                 </div>
@@ -200,11 +199,11 @@ export default function AboutPage() {
           </div>
           <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8 flex items-center justify-center">
             <div className="text-center">
-              <p className="text-7xl font-bold text-primary mb-2">
-                {new Date().getFullYear() - company.establishedYear}+
+              <p className="text-7xl font-bold text-primary mb-2 notranslate">
+                10+
               </p>
               <p className="text-primary-700 font-medium">Years of Experience</p>
-              <p className="text-sm text-primary-600 mt-2">Serving {company.address.region}</p>
+              <p className="text-sm text-primary-600 mt-2 notranslate">Serving {company.address.region}</p>
             </div>
           </div>
         </div>
