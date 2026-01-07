@@ -9,6 +9,62 @@ interface ContactFormData {
   message: string;
 }
 
+// Function to send message to Telegram
+async function sendToTelegram(data: ContactFormData) {
+  const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+  const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+
+  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+    console.warn("⚠ Telegram credentials not configured. Skipping Telegram notification.");
+    return { success: false, reason: "not_configured" };
+  }
+
+  const TELEGRAM_API = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+
+  // Format message with HTML
+  const message = `
+🔔 <b>New Contact Form Submission</b>
+
+👤 <b>Name:</b> ${data.name}
+📧 <b>Email:</b> ${data.email}
+🏢 <b>Company:</b> ${data.company || "Not provided"}
+🛠 <b>Service Type:</b> ${data.serviceType}
+
+💬 <b>Message:</b>
+${data.message}
+
+---
+<i>Sent from FDA SERVICE website</i>
+  `.trim();
+
+  try {
+    const response = await fetch(TELEGRAM_API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        chat_id: TELEGRAM_CHAT_ID,
+        text: message,
+        parse_mode: "HTML",
+      }),
+    });
+
+    const result = await response.json();
+
+    if (!result.ok) {
+      console.error("❌ Telegram error:", result);
+      return { success: false, error: result };
+    }
+
+    console.log("✅ Message sent to Telegram successfully");
+    return { success: true };
+  } catch (error) {
+    console.error("❌ Failed to send to Telegram:", error);
+    return { success: false, error };
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const data: ContactFormData = await request.json();
@@ -21,12 +77,24 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Send to Telegram (non-blocking - we'll continue even if this fails)
+    const telegramResult = await sendToTelegram(data);
+
     // Send via Web3Forms
     const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
     
     if (!accessKey) {
       console.error("WEB3FORMS_ACCESS_KEY not configured in environment variables");
       console.log("📧 Form data received:", { name: data.name, email: data.email });
+      
+      // If Telegram succeeded, we can still return success
+      if (telegramResult.success) {
+        return NextResponse.json({ 
+          success: true, 
+          message: "Message sent successfully via Telegram!" 
+        });
+      }
+      
       // Return success anyway so form works in development
       return NextResponse.json({ success: true });
     }
@@ -55,6 +123,15 @@ export async function POST(request: NextRequest) {
     if (!response.ok) {
       const errorText = await response.text();
       console.error("Web3Forms HTTP error:", response.status, errorText);
+      
+      // If Telegram succeeded, still return success
+      if (telegramResult.success) {
+        return NextResponse.json({ 
+          success: true, 
+          message: "Message sent successfully via Telegram!" 
+        });
+      }
+      
       return NextResponse.json(
         { error: "Failed to send message" },
         { status: 500 }
@@ -65,6 +142,15 @@ export async function POST(request: NextRequest) {
 
     if (!result.success) {
       console.error("Web3Forms error:", result);
+      
+      // If Telegram succeeded, still return success
+      if (telegramResult.success) {
+        return NextResponse.json({ 
+          success: true, 
+          message: "Message sent successfully via Telegram!" 
+        });
+      }
+      
       return NextResponse.json(
         { error: "Failed to send message" },
         { status: 500 }
