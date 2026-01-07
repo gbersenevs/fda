@@ -9,21 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // FDA SERVICE Brand Colors - Light design with turquoise accents
+        // FDA SERVICE Brand Colors - Light turquoise primary, darker turquoise accent
         primary: {
-          DEFAULT: "#00C9A7", // Main turquoise accent
+          DEFAULT: "#26D6BB", // Light turquoise (PRIMARY)
           50: "#E6FBF7",
-          100: "#B3F3E7",
-          200: "#80EBD7",
-          300: "#4DE3C7",
-          400: "#1ADBB7",
-          500: "#00C9A7", // Main
-          600: "#00A186",
-          700: "#007965",
-          800: "#005144",
-          900: "#002923",
+          100: "#C6F4EC",
+          200: "#9EEEE0",
+          300: "#76E8D4",
+          400: "#4EDEC8",
+          500: "#26D6BB", // Main light turquoise
+          600: "#1EB19C",
+          700: "#178C7D",
+          800: "#0F675E",
+          900: "#08423F",
         },
-        secondary: "#26D6BB", // Lighter turquoise
+        secondary: "#00C9A7", // Darker turquoise (ACCENT)
         tertiary: "#F1F5F9", // Light grey for backgrounds
         surface: "#F8FAFC", // Very light grey
         background: "#FFFFFF",
@@ -34,8 +34,8 @@ const config: Config = {
         },
         border: "#E2E8F0", // Light grey border
         accent: {
-          turquoise: "#00C9A7",
-          light: "#26D6BB",
+          turquoise: "#00C9A7", // Darker turquoise accent
+          light: "#26D6BB", // Light turquoise
           pale: "#E6FBF7",
         },
       },

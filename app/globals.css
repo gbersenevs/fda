@@ -7,14 +7,14 @@
 @import './google-translate-styles.css';
 
 :root {
-  /* FDA SERVICE Brand Colors - Light design with turquoise accents */
-  --color-primary: #00C9A7;
+  /* FDA SERVICE Brand Colors - Light turquoise primary, darker turquoise accent */
+  --color-primary: #26D6BB;
   --color-primary-50: #E6FBF7;
-  --color-primary-100: #B3F3E7;
-  --color-primary-200: #80EBD7;
-  --color-primary-600: #00A186;
-  --color-primary-700: #007965;
-  --color-secondary: #26D6BB;
+  --color-primary-100: #C6F4EC;
+  --color-primary-200: #9EEEE0;
+  --color-primary-600: #1EB19C;
+  --color-primary-700: #178C7D;
+  --color-secondary: #00C9A7;
   --color-tertiary: #F1F5F9;
   --color-surface: #F8FAFC;
   --color-background: #FFFFFF;
@@ -89,17 +89,17 @@
     @apply text-text-muted;
   }
 
-  /* Card hover effect - subtle with turquoise accent */
+  /* Card hover effect - subtle */
   .card-hover {
     @apply transition-all duration-300 hover:shadow-soft hover:-translate-y-1;
   }
 
-  /* Gradient text */
+  /* Gradient text - light to dark turquoise */
   .text-gradient {
-    @apply bg-gradient-to-r from-primary-700 to-primary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent;
   }
 
-  /* Clean button styles with turquoise accent */
+  /* Clean button styles with light turquoise primary */
   .btn-primary {
     @apply bg-primary text-white px-6 py-3 rounded-lg font-medium 
            hover:bg-primary-600 transition-all duration-200 
