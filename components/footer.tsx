@@ -14,11 +14,13 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {/* Company Info */}
             <div className="lg:col-span-1">
-              {/* Text Logo */}
+              {/* Logo */}
               <Link href="/" className="inline-block mb-4 notranslate">
-                <span className="text-xl font-bold tracking-tight text-white">
-                  FDA SERVICE
-                </span>
+                <img 
+                  src="/brand/fda-logo.svg" 
+                  alt="FDA SERVICE"
+                  className="h-10 w-auto brightness-0 invert"
+                />
               </Link>
               <p className="text-slate-400 text-sm mb-4">
                 {company.positioning}

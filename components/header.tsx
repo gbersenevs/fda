@@ -18,10 +18,12 @@ export function Header() {
       <Container>
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="notranslate" aria-label={`${company.name} Home`}>
-            <span className="text-xl md:text-2xl font-bold tracking-tight text-text">
-              FDA SERVICE
-            </span>
+          <Link href="/" className="notranslate flex items-center" aria-label={`${company.name} Home`}>
+            <img 
+              src="/brand/fda-logo.svg" 
+              alt="FDA SERVICE"
+              className="h-10 md:h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}

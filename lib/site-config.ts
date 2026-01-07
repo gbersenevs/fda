@@ -26,7 +26,7 @@ export const siteConfig = {
     positioning: "Professional building cleaning services in Latgale region",
     establishedYear: 2015,
     establishedDate: "9 December 2015",
-    trustLine: "Established in 2015 • 9+ years of experience",
+    trustLine: "Established in 2015 • 10+ years of experience",
     shareCapital: "€3,000",
     
     // Business details
@@ -85,7 +85,7 @@ export const siteConfig = {
       primaryCta: { label: "Get a free quote", href: "/contact" },
       secondaryCta: { label: "Our services", href: "/services" },
       stats: [
-        { value: "9+", label: "Years experience" },
+        { value: "10+", label: "Years experience" },
         { value: "100%", label: "Latvian company" },
         { value: "24/7", label: "Available support" },
       ],
@@ -191,7 +191,7 @@ export const siteConfig = {
       title: "Why Choose FDA SERVICE",
       items: [
         "Local expertise – we know Daugavpils and Latgale",
-        "9+ years of proven experience in building cleaning",
+        "10+ years of proven experience in building cleaning",
         "Fully compliant with Latvian regulations",
         "Flexible scheduling to fit your needs",
         "Dedicated account managers for direct communication",
@@ -221,7 +221,7 @@ export const siteConfig = {
       subtitle: "Professional building cleaning services since 2015",
     },
     highlights: [
-      "Registered Latvian company with 9+ years of operation",
+      "Registered Latvian company with 10+ years of operation",
       "Based in Daugavpils, serving the Latgale region",
       "Full compliance with all regulatory requirements",
       "Experienced team dedicated to quality cleaning",

@@ -9,34 +9,34 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // FDA SERVICE Brand Colors - Light theme with grey and blue accents
+        // FDA SERVICE Brand Colors - Light design with turquoise accents
         primary: {
-          DEFAULT: "#4B8BBE", // Professional blue
-          50: "#EFF6FB",
-          100: "#D9EAF5",
-          200: "#B3D5EB",
-          300: "#8DC0E1",
-          400: "#67ABD7",
-          500: "#4B8BBE",
-          600: "#3A6F98",
-          700: "#2A5372",
-          800: "#1A374C",
-          900: "#0A1B26",
+          DEFAULT: "#00C9A7", // Main turquoise accent
+          50: "#E6FBF7",
+          100: "#B3F3E7",
+          200: "#80EBD7",
+          300: "#4DE3C7",
+          400: "#1ADBB7",
+          500: "#00C9A7", // Main
+          600: "#00A186",
+          700: "#007965",
+          800: "#005144",
+          900: "#002923",
         },
-        secondary: "#6B7B8A", // Grey-blue
-        tertiary: "#94A3B8", // Lighter grey
+        secondary: "#26D6BB", // Lighter turquoise
+        tertiary: "#F1F5F9", // Light grey for backgrounds
         surface: "#F8FAFC", // Very light grey
         background: "#FFFFFF",
         text: {
-          DEFAULT: "#1E293B", // Dark slate
-          muted: "#64748B", // Medium grey
+          DEFAULT: "#1E293B", // Dark slate for main text
+          muted: "#64748B", // Medium grey for secondary text
           light: "#94A3B8", // Light grey
         },
-        border: "#E2E8F0", // Light border
+        border: "#E2E8F0", // Light grey border
         accent: {
-          blue: "#4B8BBE",
-          grey: "#64748B",
-          light: "#F1F5F9",
+          turquoise: "#00C9A7",
+          light: "#26D6BB",
+          pale: "#E6FBF7",
         },
       },
       fontFamily: {
@@ -54,7 +54,7 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-pattern': 'linear-gradient(135deg, #F8FAFC 0%, #EFF6FB 50%, #F1F5F9 100%)',
+        'hero-pattern': 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%)',
         'section-gradient': 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
       },
       boxShadow: {
