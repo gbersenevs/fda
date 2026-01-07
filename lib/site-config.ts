@@ -217,7 +217,7 @@ export const siteConfig = {
   // About Page Content
   about: {
     hero: {
-      title: "About FDA SERVICE",
+      title: "About ",
       subtitle: "Professional building cleaning services since 2015",
     },
     highlights: [
@@ -230,7 +230,7 @@ export const siteConfig = {
       title: "Who We Are",
       paragraphs: [
         "FDA SERVICE, SIA is a Latvian building cleaning company established in December 2015. Based in Daugavpils, we specialize in providing professional cleaning services for commercial, residential, and institutional buildings throughout the Latgale region.",
-        "Over the past nine years, we have built a reputation for reliability, quality, and professional service delivery. Our team understands the unique needs of our local community and is committed to maintaining the highest standards of cleanliness in every building we serve.",
+        "Over the past 10+ years, we have built a reputation for reliability, quality, and professional service delivery. Our team understands the unique needs of our local community and is committed to maintaining the highest standards of cleanliness in every building we serve.",
       ],
     },
     howWeWork: {
@@ -271,7 +271,7 @@ export const siteConfig = {
     experience: {
       title: "Experience & Trust",
       content:
-        "With nine consecutive years of annual financial reporting and consistent compliance with Latvian regulations, FDA SERVICE has demonstrated stability and professionalism in the cleaning services sector. Our partnership with BCS Latgale further strengthens our position as a reliable service provider in the region.",
+        "With 10+ years of annual financial reporting and consistent compliance with Latvian regulations, FDA SERVICE has demonstrated stability and professionalism in the cleaning services sector. Our partnership with BCS Latgale further strengthens our position as a reliable service provider in the region.",
       clientLogosPlaceholder:
         "Client references available upon request. We respect our clients' privacy and provide testimonials only with their explicit consent.",
     },

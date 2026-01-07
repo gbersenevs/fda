@@ -8,7 +8,7 @@ import { Collapsible } from "@/components/collapsible";
 import { Container } from "@/components/container";
 
 export const metadata: Metadata = {
-  title: "About us",
+  title: "About FDA SERVICE",
   description:
     "Learn about FDA SERVICE, a professional building cleaning company in Daugavpils providing cleaning services since 2015.",
   openGraph: {
@@ -37,7 +37,10 @@ export default function AboutPage() {
               <Calendar className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-text-muted">Since {company.establishedYear}</span>
             </div>
-            <h1 className="mb-4">{about.hero.title}</h1>
+            <h1 className="mb-4">
+              {about.hero.title.replace('FDA SERVICE', '')}
+              <span className="notranslate">FDA SERVICE</span>
+            </h1>
             <p className="text-xl text-text-muted">{about.hero.subtitle}</p>
           </div>
         </Container>

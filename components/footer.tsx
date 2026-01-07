@@ -16,18 +16,17 @@ export function Footer() {
             {/* Company Info */}
             <div className="lg:col-span-1">
               {/* Logo */}
-              <Link href="/" className="inline-block mb-4">
+              <Link href="/" className="inline-block mb-4 notranslate">
                 <Image 
                   src="/brand/fda-logo.svg" 
                   alt="FDA SERVICE"
-                  width={160}
-                  height={40}
-                  className="h-10 w-auto brightness-0 invert notranslate"
-                  priority
+                  width={180}
+                  height={48}
+                  className="h-12 w-auto brightness-0 invert"
                 />
               </Link>
               <p className="text-slate-400 text-sm mb-4">
-                <span className="notranslate">FDA SERVICE</span> - {company.positioning}
+                <span className="notranslate font-semibold">FDA SERVICE</span> — {company.positioning}
               </p>
               {/* Contact info - do not translate */}
               <div className="space-y-2 text-sm text-slate-400 notranslate">
