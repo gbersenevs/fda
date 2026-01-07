@@ -26,7 +26,7 @@ export const siteConfig = {
     positioning: "Professional building cleaning services in Latgale region",
     establishedYear: 2015,
     establishedDate: "9 December 2015",
-    trustLine: "Established in 2015 • 10+ years of experience",
+    trustLine: "10+ years of professional cleaning experience",
     shareCapital: "€3,000",
     
     // Business details

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Building2, FileText } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { Container } from "./container";
@@ -15,15 +16,18 @@ export function Footer() {
             {/* Company Info */}
             <div className="lg:col-span-1">
               {/* Logo */}
-              <Link href="/" className="inline-block mb-4 notranslate">
-                <img 
+              <Link href="/" className="inline-block mb-4">
+                <Image 
                   src="/brand/fda-logo.svg" 
                   alt="FDA SERVICE"
-                  className="h-10 w-auto brightness-0 invert"
+                  width={160}
+                  height={40}
+                  className="h-10 w-auto brightness-0 invert notranslate"
+                  priority
                 />
               </Link>
               <p className="text-slate-400 text-sm mb-4">
-                {company.positioning}
+                <span className="notranslate">FDA SERVICE</span> - {company.positioning}
               </p>
               {/* Contact info - do not translate */}
               <div className="space-y-2 text-sm text-slate-400 notranslate">
@@ -84,7 +88,7 @@ export function Footer() {
 
             {/* Legal Details - do not translate */}
             <div>
-              <h4 className="font-semibold mb-4 text-white">Company Details</h4>
+              <h4 className="font-semibold mb-4 text-white notranslate">FDA SERVICE</h4>
               <ul className="space-y-2 text-sm text-slate-400 notranslate">
                 <li className="flex items-start gap-2">
                   <Building2 className="w-4 h-4 mt-0.5 flex-shrink-0 text-slate-500" />
