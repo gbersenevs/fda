@@ -415,7 +415,6 @@ export const siteConfig = {
         name: { label: "Full name", placeholder: "Your full name" },
         company: { label: "Company name (optional)", placeholder: "Your company" },
         email: { label: "Email", placeholder: "your@email.com" },
-        phone: { label: "Phone (optional)", placeholder: "+371 20000000" },
         serviceType: {
           label: "Service type",
           placeholder: "Select a service",

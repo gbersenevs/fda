@@ -14,7 +14,6 @@ const contactSchema = z.object({
   name: z.string().min(1, "Full name is required"),
   company: z.string().optional(),
   email: z.string().min(1, "Email is required").email("Please enter a valid email"),
-  phone: z.string().optional(),
   serviceType: z.string().min(1, "Please select a service type"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
@@ -131,19 +130,6 @@ export function ContactForm() {
           )}
         </div>
 
-        {/* Phone */}
-        <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-text mb-2 notranslate">
-            Phone (optional)
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            {...register("phone")}
-            placeholder={formConfig.fields.phone.placeholder}
-            className="w-full px-4 py-3 border border-border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-          />
-        </div>
       </div>
 
       {/* Service Type */}

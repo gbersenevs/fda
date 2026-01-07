@@ -38,7 +38,8 @@ export default function AboutPage() {
               <span className="text-sm font-medium text-text-muted">Since {company.establishedYear}</span>
             </div>
             <h1 className="mb-4">
-              {about.hero.title}<span className="notranslate">FDA SERVICE</span>
+              {about.hero.title}
+              <span className="notranslate">FDA SERVICE</span>
             </h1>
             <p className="text-xl text-text-muted">{about.hero.subtitle}</p>
           </div>
