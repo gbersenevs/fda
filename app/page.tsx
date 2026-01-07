@@ -54,13 +54,13 @@ export default function HomePage() {
               )}
             </div>
             
-            {/* Right Visual - Professional Cleaning Image */}
+            {/* Right Visual - Modern Office Building */}
             <div className="hidden lg:block relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                {/* Professional Cleaning Image - Neutral Colors */}
+                {/* Modern Office Building - Professional Look */}
                 <img 
-                  src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=450&fit=crop&q=80"
-                  alt="Professional cleaning services"
+                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=450&fit=crop&q=80"
+                  alt="Modern office building"
                   className="w-full h-auto object-cover rounded-2xl"
                   width={600}
                   height={450}
