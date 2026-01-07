@@ -3,6 +3,7 @@ import { siteConfig } from "@/lib/site-config";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import "./globals.css";
+import "./google-translate-styles.css";
 
 export const metadata: Metadata = {
   title: {
